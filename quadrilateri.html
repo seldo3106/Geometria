@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <link rel="stylesheet" href="stile.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quadrilateri</title>
+        <style>
+            #barra a[href="quadrilateri.html"] {
+                background-color: #3498db;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="barra">
+            <a href="triangoli.html">Triangoli</a>
+            <a href="quadrilateri.html">Quadrilateri</a>
+            <a href="pili_equi.html">Poligoni regolari</a>
+        </div>
+        <div id="corpo">
+            <h2>Perimetro</h2>
+            <div class="sbarra">
+                <div class="rettangolo">
+                    <h3>Rettangolo/Parallelogramma</h3>
+                    <p>base</p>
+                    <input type="number" id="v01">
+                    <p>Lato</p>
+                    <input type="number" id="v02">
+                    <br><br>
+                    <button onclick="perimetro(0)">Calcola</button>
+                    <p id="u01">Il perimetro misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Quadrato/Rombo</h3>
+                    <p>Lato</p>
+                    <input type="number" id="v03">
+                    <br><br>
+                    <button onclick="perimetro(1)">Calcola</button>
+                    <p id="u02">Il perimetro misura: </p>
+                </div>
+            </div>
+            <h2>Area</h2>
+            <div class="sbarra">
+                <div class="rettangolo">
+                    <h3>Rettangolo/Parallelogramma</h3>
+                    <p>Base</p>
+                    <input type="number" id="v04">
+                    <p>Altezza</p>
+                    <input type="number" id="v05">
+                    <br><br>
+                    <button onclick="area(0)">Calcola</button>
+                    <p id="u03">L'area misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Rombo</h3>
+                    <p>Diagonale maggiore</p>
+                    <input type="number" id="v06">
+                    <p>Diagonale minore</p>
+                    <input type="number" id="v07">
+                    <br><br>
+                    <button onclick="area(1)">Calcola</button>
+                    <p id="u04">L'area misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Quadrato</h3>
+                    <p>Lato</p>
+                    <input type="number" id="v08">
+                    <br><br>
+                    <button onclick="area(2)">Calcola</button>
+                    <p id="u05">L'area misura: </p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function perimetro(caso){
+            if(caso == 0){
+                let b = parseInt(document.getElementById("v01").value);
+                let l = parseInt(document.getElementById("v02").value);
+                document.getElementById("u01").innerHTML = "Il perimetro misura:  " + (b*l);
+            }else{
+                let l = parseInt(document.getElementById("v03").value);
+                document.getElementById("u02").innerHTML = "Il perimetro misura:  " + (l*4);
+            }
+        }
+
+        function area(caso){
+            if(caso == 0){
+                let b = parseInt(document.getElementById("v04").value);
+                let h = parseInt(document.getElementById("v05").value);
+                document.getElementById("u03").innerHTML = "L'area misura:  " + (b*h);
+            }else if(caso == 1){
+                let D = parseInt(document.getElementById("v06").value);
+                let d = parseInt(document.getElementById("v07").value);
+                document.getElementById("u04").innerHTML = "L'area misura:  " + ((D*d)/2);
+            }else{
+                let l = parseInt(document.getElementById("v08").value);
+                document.getElementById("u05").innerHTML = "L'area misura:  " + (l*l);
+            }
+        }
+    </script>
+</html>

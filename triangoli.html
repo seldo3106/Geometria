@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <link rel="stylesheet" href="stile.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Triangoli</title>
+        <style>
+            #barra a[href="triangoli.html"] {
+                background-color: #3498db;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="barra">
+            <a href="triangoli.html">Triangoli</a>
+            <a href="quadrilateri.html">Quadrilateri</a>
+            <a href="pili_equi.html">Poligoni regolari</a>
+        </div>
+        <div id="corpo">
+            <h2>Perimetro</h2>
+            <div class="sbarra">
+                <div class="rettangolo">
+                    <h3>Scaleno</h3>
+                    <p>Lato 1</p>
+                    <input type="number" id="v01">
+                    <p>Lato 2</p>
+                    <input type="number" id="v02">
+                    <p>Lato 3</p>
+                    <input type="number" id="v03">
+                    <br><br>
+                    <button onclick="perimetro(0)">Calcola</button>
+                    <p id="u01">Il perimetro misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Isoscele</h3>
+                    <p>Base</p>
+                    <input type="number" id="v04">
+                    <p>Lato obliquo</p>
+                    <input type="number" id="v05">
+                    <br><br>
+                    <button onclick="perimetro(1)">Calcola</button>
+                    <p id="u02">Il perimetro misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Equilatero</h3>
+                    <p>Lato</p>
+                    <input type="number" id="v06">
+                    <br><br>
+                    <button onclick="perimetro(2)">Calcola</button>
+                    <p id="u03">Il perimetro misura: </p>
+                </div>
+            </div>
+            <h2>Area</h2>
+            <div class="sbarra">
+                <div class="rettangolo">
+                    <h3>Classico</h3>
+                    <p>Base</p>
+                    <input type="number" id="v07">
+                    <p>Altezza</p>
+                    <input type="number" id="v08">
+                    <br><br>
+                    <button onclick="area(0)">Calcola</button>
+                    <p id="u04">L'area misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Inverso</h3>
+                    <p>Area</p>
+                    <input type="number" id="v09">
+                    <p>Base/Altezza</p>
+                    <input type="number" id="v10">
+                    <br><br>
+                    <button onclick="area(1)">Calcola</button>
+                    <p id="u05">La base/altezza misura: </p>
+                </div>
+            </div>
+            <h2>Teorema di Pitagora</h2>
+            <div class="sbarra">
+                <div class="rettangolo">
+                    <h3>Per trovare l'ipotenusa</h3>
+                    <p>Cateto maggiore</p>
+                    <input type="number" id="v11">
+                    <p>Cateto minore</p>
+                    <input type="number" id="v12">
+                    <br><br>
+                    <button onclick="pitagora(0)">Calcola</button>
+                    <p id="u06">L'ipotenusa misura: </p>
+                </div><div class="rettangolo">
+                    <h3>Per trovare i cateti</h3>
+                    <p>Ipotenusa</p>
+                    <input type="number" id="v13">
+                    <p>Cateto(maggiore/minore)</p>
+                    <input type="number" id="v14">
+                    <br><br>
+                    <button onclick="pitagora(1)">Calcola</button>
+                    <p id="u07">Il cateto maggiore/minore misura: </p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function perimetro(caso){
+            if(caso == 0){
+                let l1 = parseInt(document.getElementById("v01").value);
+                let l2 = parseInt(document.getElementById("v02").value);
+                let l3 = parseInt(document.getElementById("v03").value);
+                document.getElementById("u01").innerHTML = "Il perimetro misura:  " + (l1+l2+l3);
+            }else if(caso == 1){
+                let l = parseInt(document.getElementById("v04").value);
+                let b = parseInt(document.getElementById("v05").value);
+                document.getElementById("u02").innerHTML = "Il perimetro misura:  " + ((l*2)+b);
+            }else{
+                let l = parseInt(document.getElementById("v06").value);
+                document.getElementById("u03").innerHTML = "Il perimetro misura:  " + (l*3);
+            }
+        }
+
+        function area(caso){
+            if(caso == 0){
+                let b = parseInt(document.getElementById("v07").value);
+                let h = parseInt(document.getElementById("v08").value);
+                document.getElementById("u04").innerHTML = "L'area misura:  " + ((b*h)/2);
+            }else{
+                let a = parseInt(document.getElementById("v09").value);
+                let l = parseInt(document.getElementById("v10").value);
+                document.getElementById("u05").innerHTML = "La base/altezza misura:  " + ((2*a)/l);
+            }
+        }
+
+        function pitagora(caso){
+            if(caso == 0){
+                let C = parseInt(document.getElementById("v11").value);
+                let c = parseInt(document.getElementById("v12").value);
+                let i = Math.sqrt((C*C)+(c*c));
+                document.getElementById("u06").innerHTML = "L'ipotenusa misura:  " + i;
+            }else{
+                let i = parseInt(document.getElementById("v13").value);
+                let c = parseInt(document.getElementById("v14").value);
+                let C = Math.sqrt((i*i)-(c*c));
+                document.getElementById("u07").innerHTML = "Il cateto maggiore/minore misura: " + C;
+            }
+        }
+    </script>
+</html>

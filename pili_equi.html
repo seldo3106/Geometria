@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <link rel="stylesheet" href="stile.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Poligoni equilateri</title>
+        <style>
+            #barra a[href="pili_equi.html"] {
+                background-color: #3498db;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="barra">
+            <a href="triangoli.html">Triangoli</a>
+            <a href="quadrilateri.html">Quadrilateri</a>
+            <a href="pili_equi.html">Poligoni regolari</a>
+        </div>
+        <div id="corpo">
+            <h2>Perimetro</h2>
+            <div class="sbarra">
+                <div class="rettangolo">
+                    <h3>Classico</h3>
+                    <p>Lato</p>
+                    <input type="number" id="v01">
+                    <p>Numero lati</p>
+                    <input type="number" id="v02">
+                    <br><br>
+                    <button onclick="perimetro(0)">Calcola</button>
+                    <p id="u01">Il perimetro misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Inverso</h3>
+                    <p>Perimetro</p>
+                    <input type="number" id="v03">
+                    <p>Numero lati/Lato</p>
+                    <input type="number" id="v04">
+                    <br><br>
+                    <button onclick="perimetro(1)">Calcola</button>
+                    <p id="u02">Il perimetro misura: </p>
+                </div>
+            </div>
+            <h2>Area</h2>
+            <div class="sbarra">
+                <div class="rettangolo">
+                    <h3>Classico</h3>
+                    <p>Lato</p>
+                    <input type="number" id="v05">
+                    <p>Apotema</p>
+                    <input type="number" id="v06">
+                    <p>Numero lati</p>
+                    <input type="number" id="v07">
+                    <br><br>
+                    <button onclick="area(0)">Calcola</button>
+                    <p id="u03">L'area misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Inverso per l'apotema</h3>
+                    <p>Area</p>
+                    <input type="number" id="v08">
+                    <p>Lato</p>
+                    <input type="number" id="v09">
+                    <p>Numero lati</p>
+                    <input type="number" id="v10">
+                    <br><br>
+                    <button onclick="area(1)">Calcola</button>
+                    <p id="u04">L'apotema misura: </p>
+                </div>
+                <div class="rettangolo">
+                    <h3>Inverso per il lato</h3>
+                    <p>Area</p>
+                    <input type="number" id="v11">
+                    <p>Apotema</p>
+                    <input type="number" id="v12">
+                    <p>Numero lati</p>
+                    <input type="number" id="v13">
+                    <br><br>
+                    <button onclick="area(2)">Calcola</button>
+                    <p id="u04">Il lato misura: </p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function perimetro(caso){
+            if(caso == 0){
+                let l = parseInt(document.getElementById("v01").value);
+                let n = parseInt(document.getElementById("v02").value);
+                document.getElementById("u01").innerHTML = "Il perimetro misura:  " + (l*n);
+            }else{
+                let p = parseInt(document.getElementById("v03").value);
+                let l = parseInt(document.getElementById("v04").value);
+                document.getElementById("u02").innerHTML = "Il perimetro misura:  " + (p/l);
+            }
+        }
+
+        function area(caso){
+            if(caso == 0){
+                let l = parseInt(document.getElementById("v04").value);
+                let a = parseInt(document.getElementById("v05").value);
+                let n = parseInt(document.getElementById("v06").value);
+                document.getElementById("u03").innerHTML = "L'area misura:  " + ((l*a*n)/2);
+            }else if(caso == 1){
+                let a = parseInt(document.getElementById("v07").value);
+                let l = parseInt(document.getElementById("v08").value);
+                let n = parseInt(document.getElementById("v09").value);
+                document.getElementById("u04").innerHTML = "L'apotema misura:  " + ((2*a)/(l*n));
+            }else{
+                let A = parseInt(document.getElementById("v10").value);
+                let a = parseInt(document.getElementById("v11").value);
+                let n = parseInt(document.getElementById("v12").value);
+                document.getElementById("u05").innerHTML = "Il lato misura:  " + ((2*A)/(a*n));
+            }
+        }
+    </script>
+</html>
