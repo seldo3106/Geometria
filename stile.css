@@ -69,3 +69,18 @@ button:hover {
 .rettangolo *{
     margin-left: 20px;
 }
+
+@media(max-width: 500px){
+    .sbarra{
+        display: block;
+    }
+
+    .rettangolo{
+        width: 100%;
+    }
+    
+    #barra a{
+        margin: 0 10px;
+        text-align: center;
+    }
+}
